@@ -1,7 +1,7 @@
 // Package padding implements PKCS#7 padding, as defined in RFC 5652.
 // 源码： https://github.com/zenazn/pkcs7pad
 // 标准：https://datatracker.ietf.org/doc/rfc2315/
-package padding
+package pkcs7
 
 import (
 	"bytes"

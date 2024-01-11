@@ -1,4 +1,4 @@
-package padding
+package pkcs7
 
 import (
 	"crypto/aes"
