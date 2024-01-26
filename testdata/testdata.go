@@ -10,9 +10,16 @@ import (
 //go:embed go1.21.5.src.tar.gz
 var TestFile []byte
 
+//go:embed go1.21.6.darwin-arm64.pkg
+var TestGo121File []byte
+
 // GetTestFile 获取测试文件，25.7MB
 func GetTestFile() []byte {
 	return TestFile
+}
+
+func GetTestGo112File() []byte {
+	return TestGo121File
 }
 
 func GetDigestHex(content []byte) string {
