@@ -11,12 +11,24 @@ import (
 	"time"
 )
 
+func TestSha256_10(t *testing.T) {
+	data := []byte("abc123")
+	s := sha256.New()
+	s.Write(data)
+	digest := s.Sum(nil)
+	t.Logf("digest:%s", hex.EncodeToString(digest))
+
+	digest2 := sha256.Sum256(data)
+	t.Logf("digest2:%s", hex.EncodeToString(digest2[:]))
+}
+
 func TestSha(t *testing.T) {
-	data := []byte("123abc")
-	sha256.Sum224(data)
+	data := []byte("abc123")
+	//sha256.Sum224(data)
+
 	sha256.Sum256(data)
-	sha512.Sum384(data)
-	sha512.Sum512(data)
+	//sha512.Sum384(data)
+	//sha512.Sum512(data)
 }
 
 func TestSha256(t *testing.T) {
@@ -72,8 +84,10 @@ func TestFileShaCompare(t *testing.T) {
 }
 
 func TestMac(t *testing.T) {
-	key := []byte("my-secret-key")
-	data := []byte("Hello, World!")
-	digested := hmac.New(sha256.New, key).Sum(data)
+	key := []byte("mySecretKey")
+	data := []byte("123abc")
+	h := hmac.New(sha256.New, key)
+	h.Write(data)
+	digested := h.Sum(nil)
 	t.Logf("digested:%s", hex.EncodeToString(digested))
 }
