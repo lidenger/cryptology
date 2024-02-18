@@ -13,6 +13,9 @@ var TestFile []byte
 //go:embed go1.21.6.darwin-arm64.pkg
 var TestGo121File []byte
 
+//go:embed github.com.cert
+var TestCertFile []byte
+
 // GetTestFile 获取测试文件，25.7MB
 func GetTestFile() []byte {
 	return TestFile
@@ -20,6 +23,10 @@ func GetTestFile() []byte {
 
 func GetTestGo112File() []byte {
 	return TestGo121File
+}
+
+func GetTestCertFile() []byte {
+	return TestCertFile
 }
 
 func GetDigestHex(content []byte) string {
